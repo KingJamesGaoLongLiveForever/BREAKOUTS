@@ -4,5 +4,7 @@ __pycache__/
 .pytest_cache/
 outputs/
 data/cache/
+data/raw/olist/
+data/warehouse/
 *.egg-info/
 .DS_Store
