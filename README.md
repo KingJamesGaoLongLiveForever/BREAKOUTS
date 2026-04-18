@@ -1,16 +1,54 @@
 # Quant Research Repository
 
-This repository contains two self-contained research projects:
+This repository contains three self-contained portfolio projects:
 
-1. **Donchian Breakout Strategy** (`src/quant_research/breakout/`, [report source →](docs/index.html)).
+1. **E-commerce SQL Dashboard** (`projects/ecommerce_sql_dashboard/`, [dashboard →](docs/ecommerce-dashboard/index.html)).
+   SQL-first business analytics case on the public Olist marketplace dataset with DuckDB, KPI definitions, cohort retention, and a recruiter-friendly static dashboard.
+2. **Donchian Breakout Strategy** (`src/quant_research/breakout/`, [report source →](docs/index.html)).
    Long/short breakout backtester on ~55 liquid US names and ETFs with
    walk-forward optimization, ATR stops, ATR profit targets, and a GitHub-Pages report.
-2. **US Equities Momentum Stack** (`src/quant_research/` — original code).
+3. **US Equities Momentum Stack** (`src/quant_research/` — original code).
    Config-driven cross-sectional momentum backtester.
 
 ---
 
-## 1. Donchian Breakout Strategy (new)
+## 1. E-commerce SQL Dashboard
+
+This project is designed to look like a strong `Data Analyst / Business Analyst`
+portfolio piece rather than a class notebook. It uses the public Olist Brazilian
+e-commerce dataset and answers common stakeholder questions about growth,
+category mix, retention, payment behavior, and seller concentration.
+
+### What it does
+- Loads public marketplace CSVs into a local DuckDB warehouse.
+- Builds clean SQL views for orders, customers, and item-level revenue.
+- Computes executive KPIs: revenue, orders, AOV, repeat-customer rate, review score.
+- Produces cohort retention, category performance, payment mix, and seller mix analyses.
+- Publishes a static HTML dashboard under `docs/ecommerce-dashboard/` for GitHub Pages.
+
+### Run it
+
+```bash
+python -m pip install -e .
+python scripts/run_ecommerce_dashboard.py
+```
+
+Outputs land in:
+
+- `docs/ecommerce-dashboard/index.html`        — the portfolio dashboard
+- `docs/ecommerce-dashboard/*.csv`             — downloadable query outputs
+- `projects/ecommerce_sql_dashboard/data/*.csv`— local copies of KPI tables
+- `data/warehouse/olist.duckdb`                — local DuckDB warehouse
+
+### Why it matters for recruiting
+
+This project fills the main gap in the rest of the repository: a business-facing,
+SQL-centered analytics deliverable. It shows the full analyst workflow from raw
+data ingestion to metric definition to dashboard communication.
+
+---
+
+## 2. Donchian Breakout Strategy (new)
 
 A transparent long/short Donchian channel breakout strategy backtested with
 rolling walk-forward optimization.  Every knob is a named constant in
@@ -66,7 +104,7 @@ key performance metrics (Sharpe, max drawdown).
 
 ---
 
-## 2. US Equities Momentum Research Stack (original)
+## 3. US Equities Momentum Research Stack (original)
 
 This project is a compact Python research backtester for a daily-bar US equities momentum strategy. It is designed to look and behave like a disciplined quant research prototype: config-driven runs, delayed execution, liquidity filtering, explicit trading costs, and out-of-sample reporting.
 

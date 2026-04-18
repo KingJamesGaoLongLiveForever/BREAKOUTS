@@ -1,0 +1,11 @@
+metric,definition,grain
+total_revenue,"Sum of delivered order item price plus freight across the marketplace sample.",overall
+total_orders,"Count of delivered orders.",overall
+active_customers,"Distinct customer_unique_id values with at least one delivered order.",overall
+avg_order_value,"Average delivered order value including freight.",overall
+repeat_customer_rate_pct,"Share of customers with more than one delivered order.",overall
+monthly_revenue,"Delivered revenue aggregated by purchase month.",month
+monthly_orders,"Delivered orders aggregated by purchase month.",month
+category_revenue,"Delivered gross item value by translated product category.",category
+retention_pct,"Share of a first-purchase cohort returning in each month since acquisition.",cohort_month_x_index
+avg_lifetime_value,"Average delivered customer lifetime revenue within a simple order-frequency segment.",segment
