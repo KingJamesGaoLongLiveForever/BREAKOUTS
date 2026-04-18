@@ -1,7 +1,0 @@
-{
-  "warehouse_path": "data/warehouse/olist.duckdb",
-  "site_path": "docs/ecommerce-dashboard/index.html",
-  "num_orders": 96478,
-  "num_customers": 93358,
-  "total_revenue": 15424463.64999988
-}

@@ -14,7 +14,6 @@ dependencies = [
   "PyYAML>=6.0",
   "yfinance>=0.2.40",
   "plotly>=5.20",
-  "duckdb",
 ]
 
 [project.optional-dependencies]
