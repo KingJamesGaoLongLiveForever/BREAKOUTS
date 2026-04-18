@@ -1,0 +1,98 @@
+# Donchian breakout backtest — default configuration.
+# Every value here maps 1:1 to a field on BreakoutParams
+# (src/quant_research/breakout/config.py).  Change values here rather
+# than editing the Python source when running experiments.
+
+data:
+  start: "2020-01-01"
+  end:   "2026-04-01"   # two-plus years of daily data required
+  cache_dir: "data/cache"
+  tickers:
+    # Liquid large-cap equities (a cross-section of sectors)
+    - AAPL
+    - MSFT
+    - NVDA
+    - META
+    - GOOGL
+    - AMZN
+    - TSLA
+    - JPM
+    - BAC
+    - WFC
+    - XOM
+    - CVX
+    - COP
+    - UNH
+    - LLY
+    - PFE
+    - MRK
+    - KO
+    - PEP
+    - PG
+    - WMT
+    - COST
+    - HD
+    - MCD
+    - NKE
+    - DIS
+    - NFLX
+    - CRM
+    - ORCL
+    - AMD
+    - INTC
+    - QCOM
+    - AVGO
+    - TSM
+    - BA
+    - CAT
+    - DE
+    - GE
+    - HON
+    - UPS
+    - F
+    - GM
+    - V
+    - MA
+    - PYPL
+    # Broad-market and thematic ETFs — good breakout vehicles historically
+    - SPY
+    - QQQ
+    - IWM
+    - GLD
+    - SLV
+    - USO
+    - TLT
+    - EEM
+    - XLE
+    - XLK
+    - XLF
+
+params:
+  entry_lookback_days: 55
+  exit_lookback_days: 20
+  breakout_buffer_pct: 0.0
+  min_atr_pct: 0.005
+  atr_lookback_days: 20
+  atr_stop_mult: 2.0
+  profit_target_mult: 3.0
+  max_holding_days: 20
+  # Each trade risks 0.25% of account equity at the stop.  With the
+  # Donchian filter + ATR gating the book typically holds <5 concurrent
+  # positions, so the portfolio-wide risk budget stays ~1-2%.
+  risk_per_trade: 0.0025
+  max_position_weight: 0.05
+  # Book-wide gross-exposure cap (|long|+|short| / equity).  1.0 means
+  # the simulator never runs more than 100% gross exposure at once.
+  max_gross_leverage: 1.0
+  initial_capital: 1000000.0
+  cost_bps_per_side: 2.0
+  trading_days_per_year: 252
+  risk_free_rate: 0.04
+  entry_lookback_grid: [20, 40, 55, 100]
+  train_window_days: 252
+  test_window_days: 252
+  long_short: true
+
+output:
+  site_dir: docs
+  artifacts_dir: outputs/breakout
